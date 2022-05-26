@@ -7,10 +7,10 @@ Toolkit.run(async tools => {
     childProcess.execSync(`cp ${dictionary} ./${dir}`);    
     childProcess.exec(`cd ./${dir} && spellchecker --no-suggestions -f '**/*.md' -l en-US -q -d ${dictionary} --plugins spell syntax-mentions syntax-urls`, (exception,out,err)=>{        
         tools.log.info(err);        
-        if(out || exception){
-            tools.exit = 1
+        if(out){
+            core.setFailed(out);
         }
-        tools.log.info(out);
+        
         tools.log.info(exception)
     });    
 })
