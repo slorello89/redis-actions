@@ -5,4 +5,4 @@ RUN npm install -g spellchecker-cli
 RUN npm install
 COPY . .
 
-ENTRYPOINT ["node","index.js"]
+ENTRYPOINT ["node","/app/index.js"]
