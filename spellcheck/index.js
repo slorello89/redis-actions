@@ -6,9 +6,9 @@ Toolkit.run(async tools => {
     const dictionary = process.env.DICTIONARY;
     childProcess.execSync(`cp /app/${dictionary} ./${dir}`);    
     childProcess.exec(`cd ./${dir} && spellchecker --no-suggestions -f '**/*.md' -l en-US -q -d ${dictionary} --plugins spell syntax-mentions syntax-urls`, (exception,out,err)=>{        
-        console.log(err);
-        console.log(out);
-        console.log(exception)
+        tools.info.log(err);
+        tools.info.log(out);
+        tools.info.log(exception)
     });
     
 })
