@@ -1,5 +1,6 @@
 const {Toolkit} = require("actions-toolkit");
 const childProcess = require("child_process");
+const core = require("@actions/core")
 
 Toolkit.run(async tools => {
     const dir = process.env.DOCS_DIRECTORY;
@@ -9,8 +10,7 @@ Toolkit.run(async tools => {
         tools.log.info(err);        
         if(out){
             core.setFailed(out);
-        }
-        
+        }        
         tools.log.info(exception)
     });    
 })
